@@ -1,0 +1,44 @@
+---
+import { Image } from "astro:assets";
+const { src, ...attrs } = Astro.props;
+---
+
+<!-- Isso é a parte inicial do body, com uma descrição básica de quem é a leila, e uns botões-->
+<div class="banner">
+    <div class="left">
+        <h1>Lorem ipsum dolor</h1>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Necessitatibus mollitia velit repellendus ab laudantium debitis
+            atque, ipsam explicabo quis nostrum nobis in voluptatum dolor iure
+            aspernatur? Error odio molestiae necessitatibus.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Necessitatibus mollitia velit repellendus ab laudantium debitis
+            atque, ipsam explicabo quis nostrum nobis in voluptatum dolor iure
+            aspernatur? Error odio molestiae necessitatibus.
+        </p>
+    </div>
+    <div class="right">
+        <img src="/src/assets/img/leila-banner.png" />
+    </div>
+</div>
+
+<style>
+    .banner {
+        display: flex;
+        padding-inline: 30rem;
+        margin-inline: 1rem;
+    }
+
+    .left {
+        word-wrap: normal;
+    }
+
+    .right {
+        border: 1px solid black;
+        border-radius: 50%;
+        overflow: clip;
+    }
+</style>

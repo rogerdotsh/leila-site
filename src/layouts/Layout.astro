@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Espaço Leila Fortes</title>
+    </head>
+    <body>
+        <slot />
+        <!-- Aqui dentro vai ter o conteúdo/children, colocado entre <Layout> e <Layout />, como tem em pages/index.astro -->
+    </body>
+</html>
+
+<style>
+    /* @link https://utopia.fyi/space/calculator?c=320,14,1.2,1920,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+    :root {
+        --space-3xs: clamp(0.25rem, 0.2375rem + 0.0625vw, 0.3125rem);
+        --space-2xs: clamp(0.4375rem, 0.4rem + 0.1875vw, 0.625rem);
+        --space-xs: clamp(0.6875rem, 0.6375rem + 0.25vw, 0.9375rem);
+        --space-s: clamp(0.875rem, 0.8rem + 0.375vw, 1.25rem);
+        --space-m: clamp(1.3125rem, 1.2rem + 0.5625vw, 1.875rem);
+        --space-l: clamp(1.75rem, 1.6rem + 0.75vw, 2.5rem);
+        --space-xl: clamp(2.625rem, 2.4rem + 1.125vw, 3.75rem);
+        --space-2xl: clamp(3.5rem, 3.2rem + 1.5vw, 5rem);
+        --space-3xl: clamp(5.25rem, 4.8rem + 2.25vw, 7.5rem);
+
+        /* One-up pairs */
+        --space-3xs-2xs: clamp(0.25rem, 0.175rem + 0.375vw, 0.625rem);
+        --space-2xs-xs: clamp(0.4375rem, 0.3375rem + 0.5vw, 0.9375rem);
+        --space-xs-s: clamp(0.6875rem, 0.575rem + 0.5625vw, 1.25rem);
+        --space-s-m: clamp(0.875rem, 0.675rem + 1vw, 1.875rem);
+        --space-m-l: clamp(1.3125rem, 1.075rem + 1.1875vw, 2.5rem);
+        --space-l-xl: clamp(1.75rem, 1.35rem + 2vw, 3.75rem);
+        --space-xl-2xl: clamp(2.625rem, 2.15rem + 2.375vw, 5rem);
+        --space-2xl-3xl: clamp(3.5rem, 2.7rem + 4vw, 7.5rem);
+
+        /* Custom pairs */
+        --space-s-l: clamp(0.875rem, 0.55rem + 1.625vw, 2.5rem);
+    }
+
+    html,
+    body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .main {
+        padding: 15rem;
+    }
+</style>
