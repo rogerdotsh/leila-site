@@ -1,6 +1,19 @@
 ---
 // src/components/InfiniteCarousel.astro
 import { useState } from "preact/hooks";
+
+import { Image } from "astro:assets";
+import leila_falando from "../assets/leila-falando.jpg";
+import leila_palestra from "../assets/leila-palestra.jpg";
+import leila_palestra_pandemia from "../assets/leila-palestra-pandemia.jpg";
+import m from "../assets/m.jpg";
+import n from "../assets/n.jpg";
+import k from "../assets/k.jpg";
+import s from "../assets/s.jpg";
+import u from "../assets/u.jpg";
+import i from "../assets/i.jpg";
+import j from "../assets/j.jpg";
+import h from "../assets/h.jpg";
 ---
 
 <style>
@@ -76,76 +89,82 @@ import { useState } from "preact/hooks";
 
     <div class="carousel-track">
         <div class="carousel-item">
-            <img src="/src/assets/leila-falando.jpg" />
+            <Image src={leila_falando} alt="Leila falando" />
         </div>
         <div class="carousel-item">
-            <img src="/src/assets/leila-palestra.jpg" />
+            <Image src={leila_palestra} alt="Leila palestra" />
         </div>
         <div class="carousel-item">
-            <img src="/src/assets/leila-palestra-pandemia.jpg" />
+            <Image
+                src={leila_palestra_pandemia}
+                alt="Leila palestra durante a pandemia"
+            />
         </div>
         <div class="carousel-item">
-            <img src="/src/assets/m.jpg" />
+            <Image src={m} alt="Imagem M" />
         </div>
         <div class="carousel-item">
-            <img src="/src/assets/n.jpg" />
+            <Image src={n} alt="Imagem N" />
         </div>
         <div class="carousel-item">
-            <img src="/src/assets/k.jpg" />
+            <Image src={k} alt="Imagem K" />
         </div>
         <div class="carousel-item">
-            <img src="/src/assets/s.jpg" />
+            <Image src={s} alt="Imagem S" />
         </div>
         <div class="carousel-item">
-            <img src="/src/assets/u.jpg" />
+            <Image src={u} alt="Imagem U" />
         </div>
         <div class="carousel-item">
-            <img src="/src/assets/i.jpg" />
+            <Image src={i} alt="Imagem I" />
         </div>
         <div class="carousel-item">
-            <img src="/src/assets/j.jpg" />
+            <Image src={j} alt="Imagem J" />
         </div>
         <div class="carousel-item">
-            <img src="/src/assets/h.jpg" />
+            <Image src={h} alt="Imagem H" />
         </div>
 
         <!-- imagens repetidas pra dar ilusão de loop -->
 
         <div class="carousel-item">
-            <img src="/src/assets/leila-falando.jpg" />
+            <Image src={leila_falando} alt="Leila falando" />
         </div>
         <div class="carousel-item">
-            <img src="/src/assets/leila-palestra.jpg" />
+            <Image src={leila_palestra} alt="Leila palestra" />
         </div>
         <div class="carousel-item">
-            <img src="/src/assets/leila-palestra-pandemia.jpg" />
+            <Image
+                src={leila_palestra_pandemia}
+                alt="Leila palestra durante a pandemia"
+            />
         </div>
         <div class="carousel-item">
-            <img src="/src/assets/m.jpg" />
+            <Image src={m} alt="Imagem M" />
         </div>
         <div class="carousel-item">
-            <img src="/src/assets/n.jpg" />
+            <Image src={n} alt="Imagem N" />
         </div>
         <div class="carousel-item">
-            <img src="/src/assets/k.jpg" />
+            <Image src={k} alt="Imagem K" />
         </div>
         <div class="carousel-item">
-            <img src="/src/assets/s.jpg" />
+            <Image src={s} alt="Imagem S" />
         </div>
         <div class="carousel-item">
-            <img src="/src/assets/u.jpg" />
+            <Image src={u} alt="Imagem U" />
         </div>
         <div class="carousel-item">
-            <img src="/src/assets/i.jpg" />
+            <Image src={i} alt="Imagem I" />
         </div>
         <div class="carousel-item">
-            <img src="/src/assets/j.jpg" />
+            <Image src={j} alt="Imagem J" />
         </div>
         <div class="carousel-item">
-            <img src="/src/assets/h.jpg" />
+            <Image src={h} alt="Imagem H" />
         </div>
         <div class="carousel-item">
-            <img src="/src/assets/leila-falando.jpg" />
+            <Image src={leila_falando} alt="Leila falando" />
         </div>
     </div>
 </div>
