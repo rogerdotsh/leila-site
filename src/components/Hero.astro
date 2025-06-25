@@ -1,0 +1,134 @@
+---
+import { Image } from "astro:assets";
+import leilabanner from "../assets/leila-banner.png";
+---
+
+<div class="hero">
+    <div class="banner-info">
+        <div class="banner-info-text">
+            <span
+                style="font-family: var(--alt-heading-font-family); font-size: var(--step-2);"
+            >
+                Doutora
+            </span>
+            <h1>Leila Fortes</h1>
+            <p>
+                Com mais de 30 anos de formação em Psicologia e 20 anos de
+                experiência na Educação, sou a Fundadora do projeto "Escola
+                Emocional de Pais", atendimento clínico e participação em ONGs.
+                Meus objetivos são:
+            </p>
+            <ul>
+                <li>Promoção da saúde emocional, física, cognitiva e social</li>
+                <li>
+                    Orientar pais, educadores e responsáveis para a formação
+                    integral de crianças e adolescentes
+                </li>
+                <li>
+                    Impactar o maior número de pessoas na busca pelo auto
+                    conhecimento
+                </li>
+            </ul>
+        </div>
+        <div class="banner-info-buttons">
+            <a href="#contato">Entre em contato</a>
+            <a href="../assets/curriculo-Leila-Fortes.pdf">Meu currículo</a>
+        </div>
+    </div>
+    <div class="banner-img-container">
+        <Image src={leilabanner} alt="Foto profissional" class="hero-image" />
+    </div>
+</div>
+
+<style>
+    .hero {
+        display: flex;
+        align-items: center; /* Centraliza verticalmente todos os itens */
+        gap: 2rem; /* Espaço entre texto e imagem */
+        padding: var(--space-3xl);
+        padding-inline: max(40px, 10%);
+        background: var(--primary);
+        color: var(--background);
+        user-select: none;
+    }
+
+    .banner-info {
+        flex: 1; /* Ocupa o espaço disponível */
+    }
+
+    .banner-info-text h1 {
+        font-size: calc(var(--step-5) * 2);
+        font-family: var(--alt-heading-font-family);
+    }
+
+    .banner-info-text p {
+        font-size: var(--step-2);
+    }
+
+    .banner-info-buttons {
+        display: flex;
+    }
+
+    .banner-info-buttons a {
+        padding: var(--space-s);
+        margin-inline: var(--space-s);
+        border: var(--background) 2px solid;
+        border-radius: calc(var(--space-3xl));
+        text-decoration: none;
+    }
+
+    .banner-info-buttons a:hover {
+        border: var(--background) 2px solid;
+        background: var(--accent);
+    }
+
+    .banner-img-container {
+        display: flex;
+        justify-content: center; /* Centraliza horizontalmente */
+        align-items: center; /* Centraliza verticalmente */
+    }
+
+    .hero-image {
+        max-width: 100%;
+        scale: 1.2;
+        height: auto;
+        border-radius: 50%;
+        object-fit: cover; /* Mantém proporção da imagem */
+        background: var(--secondary);
+        border: 2px solid var(--accent);
+    }
+
+    /* Melhorias na lista */
+    ul {
+        padding-left: 1.5rem;
+        margin-top: 1rem;
+    }
+
+    li {
+        margin-bottom: 0.5rem;
+        line-height: 1.5;
+    }
+
+    /* Responsividade - empilha em telas pequenas */
+    @media (max-width: 768px) {
+        .hero {
+            flex-direction: column-reverse;
+            text-align: center;
+            z-index: 3;
+        }
+
+        .banner-info-buttons {
+            flex-direction: column;
+        }
+
+        .banner-info-buttons a {
+            width: 1fr;
+            margin-block: var(--space-s);
+        }
+
+        ul {
+            text-align: left;
+            display: inline-block;
+        }
+    }
+</style>

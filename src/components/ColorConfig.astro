@@ -1,0 +1,22 @@
+<style is:global>
+    @media (prefers-color-scheme: light) {
+        :root {
+            --text: oklch(0% 0 0);
+            --text-alt: oklch(100% 0 89.88);
+            --background: oklch(93.65% 0.015 298.56);
+            --primary: oklch(29.02% 0.13 278.62);
+            --secondary: oklch(90.43% 0.049 287.92);
+            --accent: oklch(36.71% 0.207 271.02);
+        }
+    }
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --text: oklch(100% 0 89.88);
+            --text-alt: --text: oklch(0% 0 0);
+            --background: oklch(16.41% 0.023 296.28);
+            --primary: oklch(70.88% 0.113 286.67);
+            --secondary: oklch(12.16% 0.079 270.91);
+            --accent: oklch(54.03% 0.205 278.65);
+        }
+    }
+</style>

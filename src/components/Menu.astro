@@ -1,0 +1,218 @@
+---
+// Dados das frases no frontmatter
+const frases = [
+    {
+        texto: "Eu me <b>vejo</b>, e, ao me ver eu te vejo e ao te ver, te trago para a <i>minha existência</i>.",
+        autor: "Autor 1",
+    },
+    {
+        texto: "A criatividade é a inteligência se <span style='color: var(--accent)'>divertindo</span>",
+        autor: "Autor 2",
+    },
+];
+
+// Seleciona frase aleatória no servidor (SSG)
+const randomIndex = Math.floor(Math.random() * frases.length);
+const fraseAtual = frases[randomIndex];
+---
+
+<style>
+    /* Checkbox hidden */
+    #menu-toggle {
+        display: none;
+    }
+
+    .menu-icon {
+        --menu-size: 3rem; /* Tamanho fixo para melhor controle */
+        position: fixed;
+        top: 2rem;
+        right: 2rem;
+        z-index: 1001;
+        width: var(--menu-size);
+        height: var(--menu-size);
+        font-size: 2rem; /* Tamanho absoluto para melhor precisão */
+        padding-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid var(--text);
+        border-radius: 50%;
+        background: var(--background);
+        cursor: pointer;
+        color: var(--text);
+        transition: all 0.25s ease;
+        /* Centralização perfeita do ícone */
+        line-height: 1;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Ajuste fino de posição do ícone ☰ */
+    .menu-icon::before {
+        content: "☰";
+        display: block;
+        transform: translateY(-1px); /* Ajuste pixel-perfect */
+    }
+
+    .menu-icon:hover {
+        transform: scale(1.2);
+        background-color: var(--text);
+        color: var(--background);
+    }
+
+    /* Menu fullscreen */
+    .fullscreen-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: color-mix(in srgb, var(--background) 80%, transparent);
+        backdrop-filter: blur(10px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+        visibility: hidden;
+        opacity: 0;
+        transition:
+            visibility 0.3s ease,
+            opacity 0.3s ease;
+    }
+
+    /* Quando o checkbox estiver marcado */
+    #menu-toggle:checked + label + .fullscreen-menu {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .menu-options nav ul {
+        list-style: none;
+        text-align: left;
+        padding: 0;
+    }
+
+    .menu-options nav ul li {
+        margin: 20px 0;
+    }
+
+    .fullscreen-menu nav ul li a {
+        position: relative;
+        display: inline-block;
+        color: var(--text);
+        text-decoration: none;
+        font-size: var(--step-5);
+        font-family: var(--alt-heading-font-family);
+        transition: all 0.3s ease;
+        letter-spacing: 0;
+        user-select: none;
+    }
+
+    .fullscreen-menu nav ul li a:hover {
+        color: var(--accent);
+        letter-spacing: 2px;
+    }
+
+    .fullscreen-menu nav ul li a:active {
+        color: color-mix(in srgb, var(--accent) 80%, black);
+        letter-spacing: 2px;
+        transition: 0.15s ease-in-out;
+    }
+
+    .menu-decor {
+        max-width: 50%;
+        margin-right: 40px;
+        flex-wrap: wrap;
+    }
+
+    .menu-decor .frase {
+        font-size: var(--step-1);
+        line-height: 1.4;
+        margin-bottom: var(--space-s);
+        flex-wrap: wrap;
+        word-wrap: break-word;
+    }
+
+    .menu-decor .autor {
+        font-style: italic;
+        text-align: right;
+        color: var(--text);
+    }
+
+    .menu-social {
+        padding-block: var(--space-m);
+    }
+    .menu-social-item {
+        font-size: var(--step-1);
+        text-decoration: none;
+        padding-inline: var(--space-2xs);
+    }
+
+    .menu-container {
+        display: flex;
+        flex-direction: row;
+        padding-inline: var(--space-xs);
+    }
+
+    @media (max-width: 768px) {
+        .menu-container {
+            flex-direction: column-reverse;
+            align-items: center;
+        }
+
+        .menu-container > * {
+            padding-block: var(--space-s);
+        }
+
+        .fullscreen-menu nav ul li a {
+            font-size: var(--step-4);
+        }
+    }
+</style>
+
+<!-- Checkbox que controla o estado do menu -->
+<input type="checkbox" id="menu-toggle" />
+
+<!-- Label para o botão ☰ -->
+<label for="menu-toggle" class="menu-icon" aria-label="Menu principal"></label>
+
+<!-- Fullscreen Menu -->
+<div class="fullscreen-menu">
+    <div class="menu-container">
+        <div class="menu-decor">
+            <div class="frase" set:html={fraseAtual.texto} />
+            <div class="autor">{fraseAtual.autor}</div>
+
+            <div class="menu-social">
+                <a class="menu-social-item nf nf-dev-twitter" href="#"></a>
+                <a
+                    class="menu-social-item nf nf-fa-instagram"
+                    href="https://www.instagram.com/draleilafortespsi/"></a>
+                <a
+                    class="menu-social-item nf nf-fa-facebook"
+                    href="https://www.facebook.com/draleilafortespsicologia/"
+                ></a>
+                <a
+                    class="menu-social-item nf nf-fa-youtube"
+                    href="https://www.youtube.com/@espacoleilafortes2563"></a>
+            </div>
+        </div>
+
+        <div class="menu-options">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/" data-label="Sobre mim">Sobre mim</a>
+                    </li>
+
+                    <li>
+                        <a href="/projetos" data-label="Meus projetos"
+                            >Meus projetos</a
+                        >
+                    </li>
+                    <li><a href="/blog" data-label="Meu Blog">Meu Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

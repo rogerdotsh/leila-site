@@ -1,0 +1,431 @@
+---
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+import Separator from "../components/Separator.astro";
+import Hero from "../components/Hero.astro";
+import Carroussel from "../components/Carroussel.astro";
+---
+
+<DefaultLayout>
+    <Hero />
+
+    <div class="content">
+        <h1>Quem sou eu?</h1>
+        <Separator />
+
+        <!-- Seção scroll-split -->
+        <section class="scroll-split">
+            <!-- Lado esquerdo: bullet points que mudam -->
+            <div class="scroll-left" id="sticky-summary">
+                <div data-index="1" class="visible">
+                    <ul>
+                        <li>Doutora em Psicologia da Educação (FEUSP, 2020)</li>
+                        <li>Mestre em Psicologia Social (UNIMARCO, 2006)</li>
+                        <li>Especialista em Violência Doméstica (USP, 1997)</li>
+                        <li>Bacharel/Licenciada em Psicologia (UNISA, 1991)</li>
+                        <li>Licenciada em Filosofia (Claretianas, 2007)</li>
+                        <li>Pedagogia (UNIMES, 2016)</li>
+                    </ul>
+                </div>
+                <div data-index="2">
+                    <ul>
+                        <li>
+                            Especialista em Psicologia Positiva, Mindfulness e
+                            Neurociência (PUC-PR, 2024)
+                        </li>
+                        <li>
+                            Pós-graduanda em Coordenação Pedagógica (Anhembi
+                            Morumbi, 2025)
+                        </li>
+                    </ul>
+                </div>
+                <div data-index="3">
+                    <ul>
+                        <li>
+                            Professora efetiva de Filosofia e Projeto de Vida na
+                            rede estadual
+                        </li>
+                        <li>
+                            Palestrante e ministrante de cursos de formação para
+                            professores
+                        </li>
+                        <li>Psicóloga clínica e escolar</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Lado direito: blocos que disparam troca -->
+            <div class="scroll-right">
+                <Separator text="Experiência Acadêmica" />
+                <div class="scroll-block" data-index="1">
+                    <p>
+                        Sou Doutora em Psicologia da Educação, Mestre em
+                        Psicologia Social e Especialista em Violência Doméstica
+                        Contra Criança e Adolescente.
+                    </p>
+                    <p>
+                        Também sou formada em Psicologia, Filosofia e Pedagogia.
+                    </p>
+                </div>
+
+                <Separator text="Especializações" />
+                <div class="scroll-block" data-index="2">
+                    <p>
+                        Tenho especializações em Psicologia Positiva,
+                        Mindfulness e Neurociência,
+                    </p>
+                    <p>
+                        e atualmente curso pós-graduação em Coordenação
+                        Pedagógica.
+                    </p>
+                </div>
+
+                <Separator text="Minha atuação" />
+                <div class="scroll-block" data-index="3">
+                    <p>
+                        Atuo como professora de Filosofia e Projeto de Vida na
+                        rede estadual de São Paulo.
+                    </p>
+                    <p>
+                        Além de ser palestrante e formadora de professores, atuo
+                        como psicóloga clínica e escolar.
+                    </p>
+                    <p>
+                        Realizei diversos cursos de formação na área da
+                        neurodivergência (AHSD - Altas Habilidades/Superdotação,
+                        TDAH e TEA).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Missão -->
+        <section class="mission-section">
+            <Separator text="Missão" />
+            <div class="mission-content">
+                <p>
+                    Promover a saúde mental e o bem-estar integral, contribuindo
+                    para a formação de seres humanos mais:
+                </p>
+                <ul>
+                    <li>Conscientes</li>
+                    <li>Empáticos</li>
+                    <li>Resilientes</li>
+                    <li>Emocionalmente equilibrados</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Seção Serviços -->
+        <section class="services-section">
+            <Separator text="Serviços Oferecidos" />
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Psicoterapia</h3>
+                    <p>
+                        Individual para crianças, adolescentes, adultos e idosos
+                    </p>
+                </div>
+                <div class="service-card">
+                    <h3>Avaliação Psicológica</h3>
+                    <p>Diagnósticos e orientações especializadas</p>
+                </div>
+                <div class="service-card">
+                    <h3>Orientação</h3>
+                    <p>Para pais e professores</p>
+                </div>
+                <div class="service-card">
+                    <h3>Grupos Terapêuticos</h3>
+                    <p>De autoconhecimento e desenvolvimento</p>
+                </div>
+                <div class="service-card">
+                    <h3>Palestras e Oficinas</h3>
+                    <p>
+                        Sobre saúde emocional, educação emocional, parentalidade
+                        e prevenção
+                    </p>
+                </div>
+                <div class="service-card">
+                    <h3>Formação Continuada</h3>
+                    <p>Para educadores e profissionais</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Público -->
+        <section class="audience-section">
+            <Separator text="Para Quem" />
+            <div class="audience-content">
+                <div class="audience-column">
+                    <h3>Instituições</h3>
+                    <ul>
+                        <li>Escolas públicas e privadas</li>
+                        <li>Empresas e órgãos públicos</li>
+                        <li>ONGs e secretarias</li>
+                    </ul>
+                </div>
+                <div class="audience-column">
+                    <h3>Indivíduos</h3>
+                    <ul>
+                        <li>Famílias, pais e cuidadores</li>
+                        <li>Profissionais da educação e saúde</li>
+                        <li>Crianças, adolescentes, adultos e idosos</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <Carroussel />
+
+    <!-- Banner de Contato -->
+    <div id="contato">
+        <div class="contact-banner">
+            <blockquote>
+                "Cuidar da mente é um ato de coragem. Buscar o autoconhecimento
+                é o primeiro passo para transformar a vida."
+            </blockquote>
+
+            <div class="contact-info">
+                <h2>Vamos conversar?</h2>
+                <div class="contact-methods">
+                    <a
+                        href="mailto:leilajfortes@gmail.com"
+                        class="contact-link"
+                    >
+                        <span>Email: leilajfortes@gmail.com</span>
+                    </a>
+                    <a href="https://wa.me/5513997122206" class="contact-link">
+                        <span>WhatsApp: (13) 99712-2206</span>
+                    </a>
+                    <a
+                        href="https://instagram.com/draleilafortespsi"
+                        class="contact-link"
+                    >
+                        <span>Instagram: @draleilafortespsi</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Script: troca dinâmica dos bullets -->
+    <script>
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const index = entry.target.dataset.index;
+                        document
+                            .querySelectorAll("#sticky-summary > div")
+                            .forEach((el) => el.classList.remove("visible"));
+                        document
+                            .querySelector(
+                                `#sticky-summary > [data-index="${index}"]`,
+                            )
+                            ?.classList.add("visible");
+                    }
+                });
+            },
+            {
+                root: null,
+                rootMargin: "0px",
+                threshold: 0.5,
+            },
+        );
+
+        document
+            .querySelectorAll(".scroll-block")
+            .forEach((el) => observer.observe(el));
+    </script>
+</DefaultLayout>
+
+<style>
+    /* Estilos existentes */
+    .scroll-split {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-l);
+        margin: 0;
+    }
+
+    .scroll-left {
+        flex: 1;
+        position: sticky;
+        padding-top: var(--space-2xl);
+        top: 0;
+        margin-bottom: 30hv;
+    }
+
+    .scroll-left ul li {
+        margin-bottom: var(--space-s);
+        line-height: 1.8;
+    }
+
+    .scroll-left > div {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        position: absolute;
+    }
+
+    .scroll-left > .visible {
+        opacity: 1;
+        position: relative;
+    }
+
+    .scroll-right {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-xl);
+        padding-block: var(--space-2xl);
+    }
+
+    .scroll-block {
+        min-height: 50vh;
+    }
+
+    .scroll-block p {
+        font-size: var(--step-2);
+        margin-bottom: var(--space-m);
+    }
+
+    /* Novos estilos */
+    .mission-section,
+    .services-section,
+    .audience-section {
+        margin: var(--space-2xl) 0;
+    }
+
+    .mission-content {
+        font-size: var(--step-1);
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .mission-content ul {
+        margin-top: var(--space-m);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-s);
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--space-m);
+        margin-top: var(--space-l);
+    }
+
+    .service-card {
+        background: var(--accent-light);
+        padding: var(--space-m);
+        border-radius: var(--radius);
+        transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .service-card h3 {
+        color: var(--accent);
+        margin-bottom: var(--space-xs);
+    }
+
+    .audience-content {
+        display: flex;
+        gap: var(--space-xl);
+        margin-top: var(--space-l);
+    }
+
+    .audience-column {
+        flex: 1;
+    }
+
+    .audience-column h3 {
+        color: var(--accent);
+        margin-bottom: var(--space-s);
+    }
+
+    .audience-column ul {
+        line-height: 1.8;
+    }
+
+    #contato {
+        height: 100vh;
+        align-content: center;
+        background: var(--accent);
+    }
+
+    #contato > * {
+    }
+
+    .contact-banner {
+        background: var(--accent);
+        color: var(--background);
+        padding: var(--space-2xl) var(--space-l);
+        text-align: center;
+    }
+
+    .contact-banner blockquote {
+        font-size: var(--step-2);
+        font-style: italic;
+        max-width: 800px;
+        margin: 0 auto var(--space-xl);
+    }
+
+    .contact-info {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .contact-methods {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-s);
+        margin-top: var(--space-m);
+    }
+
+    .contact-link {
+        color: var(--background);
+        text-decoration: none;
+        transition: opacity 0.3s ease;
+        font-size: var(--step-2);
+    }
+
+    .contact-link:hover {
+        opacity: 0.8;
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .scroll-split {
+            flex-direction: column;
+        }
+
+        .scroll-left {
+            position: relative;
+        }
+
+        .scroll-left > div {
+            min-height: auto;
+            padding-block: 1.2rem;
+            border-top: solid 1px var(--text);
+            position: relative;
+            opacity: 1;
+        }
+
+        .mission-content ul {
+            grid-template-columns: 1fr;
+        }
+
+        .audience-content {
+            flex-direction: column;
+            gap: var(--space-m);
+        }
+
+        .services-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

@@ -1,0 +1,59 @@
+---
+import FontConfig from "../components/FontConfig.astro";
+import SpacingConfig from "../components/SpacingConfig.astro";
+import ColorConfig from "../components/ColorConfig.astro";
+import Footer from "../components/Footer.astro";
+import Menu from "../components/Menu.astro";
+---
+
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+    </head>
+    <body>
+        <main>
+            <slot />
+        </main>
+    </body>
+</html>
+<Menu />
+<Footer />
+<FontConfig />
+<SpacingConfig />
+<ColorConfig />
+
+<style is:global>
+    * {
+        line-height: 1.3;
+        padding: 0;
+    }
+
+    html {
+    }
+
+    body {
+        background: var(--background);
+        color: var(--text);
+        z-index: 1;
+    }
+
+    main {
+        position: relative;
+        z-index: 1;
+        background: var(--background);
+    }
+
+    .content {
+        padding-block: var(--space-xl);
+        padding-inline: max(40px, 10%);
+    }
+
+    img {
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+</style>

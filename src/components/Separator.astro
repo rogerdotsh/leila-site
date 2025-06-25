@@ -1,0 +1,39 @@
+---
+// src/components/Separator.astro
+export interface Props {
+    text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<div class="separator">
+    <span class="separator-text">{text}</span>
+    <div class="separator-line"></div>
+</div>
+
+<style>
+    .separator {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        gap: 0.5rem;
+        margin: 1rem 0;
+    }
+
+    .separator-text {
+        flex-shrink: 0;
+        font-size: 0.875rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: inherit;
+        font-family: var(--main-heading-font-family);
+    }
+
+    .separator-line {
+        flex-grow: 1;
+        height: 1px;
+        background-color: currentColor;
+    }
+</style>

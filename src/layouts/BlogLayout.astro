@@ -1,0 +1,50 @@
+---
+import FontConfig from "../components/FontConfig.astro";
+import SpacingConfig from "../components/SpacingConfig.astro";
+import ColorConfig from "../components/ColorConfig.astro";
+import Footer from "../components/Footer.astro";
+import Menu from "../components/Menu.astro";
+---
+
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Leila Fortes - Blog</title>
+    </head>
+    <body>
+        <main>
+            <div class="content">
+                <slot />
+            </div>
+        </main>
+    </body>
+</html>
+<Menu />
+<Footer />
+<FontConfig />
+<SpacingConfig />
+<ColorConfig />
+
+<style is:global>
+    body {
+        background: var(--background);
+        color: var(--text);
+        z-index: 1;
+    }
+
+    main {
+        position: relative;
+        z-index: 1;
+        background: var(--background);
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .content {
+        max-width: 850px;
+        padding-inline: var(--space-xl);
+    }
+</style>

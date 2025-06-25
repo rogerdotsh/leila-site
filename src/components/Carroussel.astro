@@ -1,0 +1,151 @@
+---
+// src/components/InfiniteCarousel.astro
+import { useState } from "preact/hooks";
+---
+
+<style>
+    .carousel-container {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+        margin: 2rem 0;
+        background: var(--secondary);
+    }
+
+    .carousel-title {
+        text-align: center;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        transition: opacity 0.3s ease;
+    }
+
+    .carousel-track {
+        display: flex;
+        width: max-content;
+        animation: scroll 36s linear infinite;
+        align-content: center;
+    }
+
+    .carousel-track:hover {
+        animation-play-state: paused;
+    }
+
+    .carousel-track:hover ~ .carousel-title {
+        opacity: 0;
+    }
+
+    .carousel-item {
+        width: 2.5%;
+        height: auto;
+        margin: 0 10px;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: #333;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        flex-shrink: 0;
+        transition: transform 0.3s ease;
+    }
+
+    .carousel-item > img {
+        width: 1fr;
+        aspect-ratio: 1/1;
+        align-content: center;
+    }
+
+    .carousel-item:hover {
+        transform: scale(1.05);
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+</style>
+
+<div class="carousel-container">
+    <h2>Fotos</h2>
+
+    <div class="carousel-track">
+        <div class="carousel-item">
+            <img src="/src/assets/leila-falando.jpg" />
+        </div>
+        <div class="carousel-item">
+            <img src="/src/assets/leila-palestra.jpg" />
+        </div>
+        <div class="carousel-item">
+            <img src="/src/assets/leila-palestra-pandemia.jpg" />
+        </div>
+        <div class="carousel-item">
+            <img src="/src/assets/m.jpg" />
+        </div>
+        <div class="carousel-item">
+            <img src="/src/assets/n.jpg" />
+        </div>
+        <div class="carousel-item">
+            <img src="/src/assets/k.jpg" />
+        </div>
+        <div class="carousel-item">
+            <img src="/src/assets/s.jpg" />
+        </div>
+        <div class="carousel-item">
+            <img src="/src/assets/u.jpg" />
+        </div>
+        <div class="carousel-item">
+            <img src="/src/assets/i.jpg" />
+        </div>
+        <div class="carousel-item">
+            <img src="/src/assets/j.jpg" />
+        </div>
+        <div class="carousel-item">
+            <img src="/src/assets/h.jpg" />
+        </div>
+
+        <!-- imagens repetidas pra dar ilusão de loop -->
+
+        <div class="carousel-item">
+            <img src="/src/assets/leila-falando.jpg" />
+        </div>
+        <div class="carousel-item">
+            <img src="/src/assets/leila-palestra.jpg" />
+        </div>
+        <div class="carousel-item">
+            <img src="/src/assets/leila-palestra-pandemia.jpg" />
+        </div>
+        <div class="carousel-item">
+            <img src="/src/assets/m.jpg" />
+        </div>
+        <div class="carousel-item">
+            <img src="/src/assets/n.jpg" />
+        </div>
+        <div class="carousel-item">
+            <img src="/src/assets/k.jpg" />
+        </div>
+        <div class="carousel-item">
+            <img src="/src/assets/s.jpg" />
+        </div>
+        <div class="carousel-item">
+            <img src="/src/assets/u.jpg" />
+        </div>
+        <div class="carousel-item">
+            <img src="/src/assets/i.jpg" />
+        </div>
+        <div class="carousel-item">
+            <img src="/src/assets/j.jpg" />
+        </div>
+        <div class="carousel-item">
+            <img src="/src/assets/h.jpg" />
+        </div>
+        <div class="carousel-item">
+            <img src="/src/assets/leila-falando.jpg" />
+        </div>
+    </div>
+</div>

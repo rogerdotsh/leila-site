@@ -1,0 +1,133 @@
+---
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+import Separator from "../components/Separator.astro";
+import Menu from "../components/Menu.astro";
+import { Image } from "astro:assets";
+
+// Try to import posts, fallback to empty array if none found
+let sortedPosts = [];
+try {
+    const allPosts = await Astro.glob("../pages/blog/*.md");
+    sortedPosts = allPosts.sort(
+        (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date),
+    );
+} catch (error) {
+    // If glob fails (no files found), we'll just use the empty array
+    console.log("No blog posts found, showing 'Em breve' message");
+}
+---
+
+<DefaultLayout>
+    <Menu />
+    <div class="content">
+        <h1>Meu blog</h1>
+        <Separator text="" />
+
+        {
+            sortedPosts.length > 0 ? (
+                <div class="blog-container">
+                    {sortedPosts.map((post) => (
+                        <a href={post.url} class="blog-post-card">
+                            <h2>{post.frontmatter.title}</h2>
+                            {post.frontmatter.image && (
+                                <img
+                                    src={post.frontmatter.image}
+                                    alt={post.frontmatter.title}
+                                    class="blog-post-image"
+                                />
+                            )}
+                            <p class="blog-post-excerpt">
+                                {post.frontmatter.description ||
+                                    post.frontmatter.excerpt}
+                            </p>
+                            <div class="blog-post-meta">
+                                <span>
+                                    {new Date(
+                                        post.frontmatter.date,
+                                    ).toLocaleDateString()}
+                                </span>
+                                {post.frontmatter.author && (
+                                    <span>Por {post.frontmatter.author}</span>
+                                )}
+                            </div>
+                        </a>
+                    ))}
+                </div>
+            ) : (
+                <div class="empty-state">
+                    <p>Em breve</p>
+                </div>
+            )
+        }
+    </div>
+    <style>
+        .blog-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            padding: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .blog-post-card {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            background: var(--background);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px var(--text) solid;
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .blog-post-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-post-image {
+            width: 100%;
+            height: 20rem;
+            object-fit: cover;
+            border-radius: 5px;
+            padding: 5px 5px;
+        }
+
+        .blog-post-card h2 {
+            margin: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .blog-post-excerpt {
+            margin: 0 1rem 1rem;
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        .blog-post-meta {
+            margin: 0 1rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.875rem;
+            color: var(--text);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 2rem;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .blog-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</DefaultLayout>
