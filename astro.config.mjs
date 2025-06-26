@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config'
 
 export default defineConfig({
-  site: 'https://rogerdotsh.github.io/leila-site',
-  base: 'leila-site',
+  site: 'https://rogerinho.top/leila-site/',
 })
